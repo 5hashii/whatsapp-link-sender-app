@@ -1,0 +1,11 @@
+Flask-SQLAlchemy==3.0.5
+Flask-Login==0.6.2
+Flask-Migrate==4.0.4
+Flask-WTF==1.2.1
+pywhatkit==5.4
+python-dotenv==1.0.0
+Werkzeug==2.3.7
+python-telegram-bot==20.7
+Flask==2.0.3
+requests==2.25.1
+numpy==1.21.0
