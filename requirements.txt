@@ -6,6 +6,6 @@ pywhatkit==5.4
 python-dotenv==1.0.0
 Werkzeug==2.3.7
 python-telegram-bot==20.7
-Flask
+Flask>=2.2.5
 requests==2.25.1
-numpy==1.21.0
+numpy==2.2.2
