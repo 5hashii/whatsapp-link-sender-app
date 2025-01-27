@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="text-center">
+    <h1 class="display-4">Welcome to WhatsApp Link Sender</h1>
+    <p class="lead">Share your website links easily through WhatsApp</p>
+    {% if not user.is_authenticated %}
+    <div class="mt-4">
+        <a href="/sign-up" class="btn btn-primary btn-lg mx-2">Sign Up</a>
+        <a href="/login" class="btn btn-outline-primary btn-lg mx-2">Login</a>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

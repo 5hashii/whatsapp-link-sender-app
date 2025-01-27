@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block title %}Send Message{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="text-center mb-4">Send Message</h2>
+                <div class="mb-4">
+                    <h5>Link Details:</h5>
+                    <p><strong>URL:</strong> {{ link.url }}</p>
+                    <p><strong>Description:</strong> {{ link.description }}</p>
+                </div>
+                <form method="POST">
+                    <div class="mb-3">
+                        <label class="form-label">Platform</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="platform" id="whatsapp" value="whatsapp" checked>
+                            <label class="form-check-label" for="whatsapp">
+                                WhatsApp
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="platform" id="telegram" value="telegram">
+                            <label class="form-check-label" for="telegram">
+                                Telegram
+                            </label>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="numbers" class="form-label" id="numbersLabel">Recipients</label>
+                        <textarea class="form-control" id="numbers" name="numbers" rows="4" required></textarea>
+                        <div class="form-text" id="numbersHelp">For WhatsApp: Enter phone numbers with country code, separated by commas (e.g., +1234567890, +9876543210)<br>
+                            For Telegram: Enter usernames or chat IDs, separated by commas (e.g., @username1, @username2)</div>
+                    </div>
+                    <button type="submit" class="btn btn-success w-100">Send Messages</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const whatsappRadio = document.getElementById('whatsapp');
+    const telegramRadio = document.getElementById('telegram');
+    const numbersHelp = document.getElementById('numbersHelp');
+    const numbersLabel = document.getElementById('numbersLabel');
+
+    function updateHelp() {
+        if (whatsappRadio.checked) {
+            numbersHelp.innerHTML = 'Enter phone numbers with country code, separated by commas (e.g., +1234567890, +9876543210)';
+            numbersLabel.innerHTML = 'WhatsApp Numbers';
+        } else {
+            numbersHelp.innerHTML = 'Enter usernames or chat IDs, separated by commas (e.g., @username1, @username2)';
+            numbersLabel.innerHTML = 'Telegram Recipients';
+        }
+    }
+
+    whatsappRadio.addEventListener('change', updateHelp);
+    telegramRadio.addEventListener('change', updateHelp);
+});
+</script>
+{% endblock %}
